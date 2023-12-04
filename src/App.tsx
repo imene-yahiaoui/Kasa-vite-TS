@@ -1,10 +1,17 @@
-import "./app.scss"
+import "./app.scss";
+import RoutesPath from "./helpers/RoutesPath";
 
 
 function App() {
-  return(
-    <h1 className="hello">  Hello you  </h1>
-  )
+  return (
+    <div>
+      <div className="App">
+  
+      <RoutesPath  />
+      </div>
+    
+    </div>
+  );
 }
 
 export default App
