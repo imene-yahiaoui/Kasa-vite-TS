@@ -1,3 +1,7 @@
+
+
+
+
 function Accommodate() {
   return (
     <div className="App">
