@@ -1,17 +1,31 @@
+import React from "react";
 import PhotoHome from "../../containers/photoHome";
-// import Frame from "../../components/frame";
+import Frame from "../../components/frame";
 import "./style.scss";
 
-const Home = () => {
+interface HomeProps {
+  posts: {
+    id: string;
+    title: string;
+    cover: string;
+    pictures: string[];
+    description: string;
+    host: {
+      name: string;
+      picture: string;
+    };
+    rating: number;
+    location: string;
+    equipments: string[];
+    tags: string[];
+  }[];
+}
 
+const Home: React.FC<HomeProps> = ({ posts }) => {
   return (
     <div>
-      
-        <PhotoHome
-        />
-     
-    
-      {/* <div className="container">
+      <PhotoHome />
+      <div className="container">
         {posts.map((post) => (
           <Frame
             cover={post.cover}
@@ -20,7 +34,7 @@ const Home = () => {
             id={post.id}
           />
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };

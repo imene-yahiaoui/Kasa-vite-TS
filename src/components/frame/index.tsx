@@ -10,9 +10,9 @@ type FrameProps = {
 
 const Frame : React.FC<FrameProps> = (props) => {
   return (
-    <NavLink to={`/Housing/${props.id}`} key={props.id}>
+    <NavLink to={`/Accommodate/${props.id}`} key={props.id}>
       <div className="frame">
-        <div className="container">
+        <div className="containerFrame">
           <img src={props.cover} alt={props.title}></img>
           <p>{props.title}</p>
         </div>

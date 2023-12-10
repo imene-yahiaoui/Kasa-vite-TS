@@ -13,7 +13,10 @@
   row-gap: 65px;
   justify-items: center;
 }
+a:hover{
+  text-decoration: none;
 
+}
 @include for_tablet {
   .container {
     grid-template-columns: repeat(2, 1fr);
