@@ -21,15 +21,21 @@ type RoutesPathProps ={
     equipments: string[];
     tags: string[];
   }[];
-}
 
-const RoutesPath: React.FC<RoutesPathProps> = ({ posts }) => {
+  About : {
+    key:number;
+    title: string;
+    text: string;
+  }
+}
+  
+const RoutesPath: React.FC<RoutesPathProps> = ({ posts,dataAbout }) => {
   return (
     <div>
       <Routes>
         <Route path="/" element={<Home posts={posts} />} />
         <Route path="/accommodate" element={<Accommodate />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<About dataAbout={dataAbout}/>} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </div>

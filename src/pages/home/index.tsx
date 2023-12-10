@@ -1,9 +1,15 @@
 import React from "react";
-import PhotoHome from "../../containers/photoHome";
+import Picture from "../../components/picture";
 import Frame from "../../components/frame";
+import ImageDesktop from "../../assets/images/headerDesktop.png";
 import "./style.scss";
 
-interface HomeProps {
+type HomeProps = {
+  PictureProps:{
+    photo:string;
+    text:string;
+    paragraphe:string;
+  }
   posts: {
     id: string;
     title: string;
@@ -24,7 +30,8 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ posts }) => {
   return (
     <div>
-      <PhotoHome />
+      <Picture photo={ImageDesktop}     text="Chez vous,"
+          paragraphe="partout et ailleurs" />
       <div className="container">
         {posts.map((post) => (
           <Frame

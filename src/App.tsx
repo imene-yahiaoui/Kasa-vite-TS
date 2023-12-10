@@ -19,9 +19,15 @@ type Post = {
   tags: string[];
 };
 
+type About = {
+  key:number;
+  title: string;
+  text: string;
+}
+
 const App: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
-
+const [dataAbout,setDataAbout]= useState<About[]>([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -40,11 +46,28 @@ const App: React.FC = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const fetchAbout = async () => {
+      try {
+        const requete = await fetch("../../about.json", {
+          method: "GET",
+        });
+        if (requete.ok) {
+          const response = await requete.json();
+          setDataAbout(response);
+          console.log(response);
+        }
+      } catch (e) {
+        console.error("Une erreur s'est produite lors de la récupération des données :", e);
+      }
+    };
+    fetchAbout();
+  }, []);
   return (
     <div>
       <div className="App">
         <Header />
-        <RoutesPath posts={posts} />
+        <RoutesPath posts={posts} dataAbout={dataAbout} />
       
       </div>
       <Footer />
