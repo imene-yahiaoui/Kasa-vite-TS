@@ -8,6 +8,7 @@ import Tag from "../../components/tag";
 import "./style.scss";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 type AccommodateProps = {
   PictureProps: {
@@ -40,12 +41,17 @@ type AccommodateProps = {
     Rating:number;
     stars:number;
   }
+  user:boolean;
 };
 
 const Accommodate: React.FC<AccommodateProps> = ({ posts }) => {
   const [index, setCurrentindex] = useState(0);
-  //recuperer le ID
+  /**
+ * recuperer le ID
+ */
   const { id } = useParams();
+ 
+
 
   ///slidesLenghth
   const slidesLenghth = posts
@@ -100,9 +106,13 @@ const colorStars = {
   grey: "#f6f6f6",
   red: "#ff6060",
 };
+/**
+ * Vérifier si l'utilisateur existe
+ */
+const user = posts.some((post) => post.id === id);
 
-
-
+if (user)
+ {
   return (
     <div className="App">
       <div className="carrousel_imgs">
@@ -207,7 +217,14 @@ const colorStars = {
               ))}
           </div> 
         </div>
-  );
+  )
+  
+}
+else{
+
+  return <Navigate to="/*" />;
+}
+  
 };
 
 export default Accommodate;
