@@ -37,7 +37,7 @@ const [dataAbout,setDataAbout]= useState<About[]>([]);
         if (requete.ok) {
           const response = await requete.json();
           setPosts(response);
-          console.log(response);
+        
         }
       } catch (e) {
         console.error("Une erreur s'est produite lors de la récupération des données :", e);
@@ -55,7 +55,7 @@ const [dataAbout,setDataAbout]= useState<About[]>([]);
         if (requete.ok) {
           const response = await requete.json();
           setDataAbout(response);
-          console.log(response);
+          
         }
       } catch (e) {
         console.error("Une erreur s'est produite lors de la récupération des données :", e);
