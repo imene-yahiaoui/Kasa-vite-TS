@@ -34,7 +34,7 @@ const RoutesPath: React.FC<RoutesPathProps> = ({ posts,dataAbout }) => {
     <div>
       <Routes>
         <Route path="/" element={<Home posts={posts} />} />
-        <Route path="/accommodate" element={<Accommodate />} />
+        <Route path="/accommodate/:id" element={<Accommodate posts={posts}/>} />
         <Route path="/about" element={<About dataAbout={dataAbout}/>} />
         <Route path="/*" element={<NotFound />} />
       </Routes>

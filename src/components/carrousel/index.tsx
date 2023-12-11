@@ -1,20 +1,18 @@
+// Carrousel.tsx
 import React from "react";
 import "./style.scss";
 
 type CarrouselProps = {
-  slides: string[];
+  slides: string;
 };
 
 const Carrousel: React.FC<CarrouselProps> = ({ slides }) => {
   return (
     <div className="carousel">
-      {slides.map((slide, index) => (
-        <div
-          className="carousel-img"
-          key={index}
-          style={{ backgroundImage: `url(${slide})` }}
-        ></div>
-      ))}
+      <div
+        className="carousel-img"
+        style={{ backgroundImage: `url(${slides})` }}
+      ></div>
     </div>
   );
 };
