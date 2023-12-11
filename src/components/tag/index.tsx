@@ -5,7 +5,7 @@ import React from "react";
     tags:string[];
  }
 
-const Tag : React.FC<tagProps> = (tags) => {
+const Tag : React.FC<tagProps> = ({tags}) => {
   return (
     <li className="tag-container">
       <p className="tag">{tags}</p>
