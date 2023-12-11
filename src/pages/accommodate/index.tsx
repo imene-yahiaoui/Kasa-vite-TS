@@ -2,9 +2,9 @@ import React from "react";
 import Carrousel from "../../components/carrousel";
 // import Collapse from "../../components/collapse";
 // import Host from "../../components/host";
-// import Info from "../../components/info";
+import Info from "../../components/info";
 // import Stars from "../../components/stars";
-// import Tag from "../../components/tag";
+ import Tag from "../../components/tag";
 import"./style.scss";
 import { useState} from "react";
 import { useParams } from "react-router-dom";
@@ -78,7 +78,8 @@ console.log('slidesLenghth',slidesLenghth)
   return (
     <div className="App">
 
-          <div className="carrousel_imgs">
+      <div className="carrousel_imgs">
+
           {posts
           .filter((post) => post.id === id)
           .map((post) => (
@@ -122,9 +123,24 @@ console.log('slidesLenghth',slidesLenghth)
                   {[index + 1]}/{post.pictures.length}
                 </p>
               ))}
-          </div>
+      </div>
+
+      <div className="containerTagInfo">
+              {posts
+                .filter((post) => post.id === id)
+                .map((post) => (
+                  <Info
+                    title={post.title}
+                    location={post.location}
+                    key={post.id}
+                  />
+                ))}
+
+             
+            </div>
 
     </div>
+
   );
 }
 
