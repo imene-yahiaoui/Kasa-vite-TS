@@ -2,8 +2,9 @@ import React from "react";
 import "./style.scss";
 type StarsProps ={
     color:number
+   
 }
-const Stars : React.FC<StarsProps> = (color) => {
+const Stars : React.FC<StarsProps> = ({color}) => {
   return (
     <div>
       <div className="stars">

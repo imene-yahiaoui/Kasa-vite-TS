@@ -1,9 +1,9 @@
 import React from "react";
 import Carrousel from "../../components/carrousel";
-//  import Collapse from "../../components/collapse";
-// import Host from "../../components/host";
+  import Collapse from "../../components/collapse";
+ import Host from "../../components/host";
 import Info from "../../components/info";
-//  import Stars from "../../components/stars";
+ import Stars from "../../components/stars";
 import Tag from "../../components/tag";
 import "./style.scss";
 import { useState } from "react";
@@ -91,6 +91,15 @@ const Accommodate: React.FC<AccommodateProps> = ({ posts }) => {
         .filter((post) => post.id === id)
         .map((post) => tag.push(<Tag tags={post.tags[item]} key={item} />));
     }
+const Rating = posts
+  .filter((post) => post.id === id)
+  .map((post) => post.rating);
+const stars = Array(5).fill(0);
+
+const colorStars = {
+  grey: "#f6f6f6",
+  red: "#ff6060",
+};
 
 
 
@@ -151,11 +160,52 @@ const Accommodate: React.FC<AccommodateProps> = ({ posts }) => {
              <ul className="tags">{tag}</ul>
       </div>
       <div className="containerHostStars">
-             
+              <div className="host">
+                {posts
+                  .filter((post) => post.id === id)
+                  .map((post) => (
+                    <Host
+                      key={post.id}
+                      picture={post.host.picture}
+                      name={post.host.name}
+                    />
+                  ))}
+              </div> 
+              <div className="star">
+                {stars.map((_, rating) => {
+                  return (
+                    <Stars
+                      key={rating}
+                      color={Rating > rating ? colorStars.red : colorStars.grey}
+                    />
+                  );
+                })}
+              </div>
             </div>
 
     </div>
-  
+     <div className="collapseHosing">
+            {posts
+              .filter((post) => post.id === id)
+              .map((post) => (
+                <Collapse
+                  title={"description"}
+                  text={post.description}
+                  key={post.id}
+                />
+              ))}
+            {posts
+              .filter((post) => post.id === id)
+              .map((post) => (
+                <Collapse
+                  title={"Équipements"}
+                  ArryText={post.equipments.map((equipment) => (
+                    <li key={equipment}>{equipment}</li>
+                  ))}
+                  key={post.id}
+                />
+              ))}
+          </div> 
         </div>
   );
 };
