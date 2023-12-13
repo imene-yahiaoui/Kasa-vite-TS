@@ -1,9 +1,9 @@
- import RoutesPath from "./helpers/RoutesPath";
+import RoutesPath from "./helpers/RoutesPath";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import { useState, useEffect } from "react";
 import "./assets/sass/app.scss";
-type Post = {
+type post = {
   id: string;
   title: string;
   cover: string;
@@ -19,15 +19,15 @@ type Post = {
   tags: string[];
 };
 
-type About = {
-  key:number;
+type dataAbout = {
+  key: number;
   title: string;
   text: string;
-}
+};
 
 const App: React.FC = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
-const [dataAbout,setDataAbout]= useState<About[]>([]);
+  const [posts, setPosts] = useState<post[]>([]);
+  const [dataAbout, setDataAbout] = useState<dataAbout[]>([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,10 +37,12 @@ const [dataAbout,setDataAbout]= useState<About[]>([]);
         if (requete.ok) {
           const response = await requete.json();
           setPosts(response);
-        
         }
       } catch (e) {
-        console.error("Une erreur s'est produite lors de la récupération des données :", e);
+        console.error(
+          "Une erreur s'est produite lors de la récupération des données :",
+          e
+        );
       }
     };
     fetchData();
@@ -55,10 +57,12 @@ const [dataAbout,setDataAbout]= useState<About[]>([]);
         if (requete.ok) {
           const response = await requete.json();
           setDataAbout(response);
-          
         }
       } catch (e) {
-        console.error("Une erreur s'est produite lors de la récupération des données :", e);
+        console.error(
+          "Une erreur s'est produite lors de la récupération des données :",
+          e
+        );
       }
     };
     fetchAbout();
@@ -68,7 +72,6 @@ const [dataAbout,setDataAbout]= useState<About[]>([]);
       <div className="App">
         <Header />
         <RoutesPath posts={posts} dataAbout={dataAbout} />
-      
       </div>
       <Footer />
     </div>

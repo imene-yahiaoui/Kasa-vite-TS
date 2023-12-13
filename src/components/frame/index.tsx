@@ -3,12 +3,12 @@ import { NavLink } from "react-router-dom";
 import "./style.scss";
 
 type FrameProps = {
-    id: number;
-    title: string;
-    cover: string;
-  }
+  id:string;
+  title: string;
+  cover: string;
+};
 
-const Frame : React.FC<FrameProps> = (props) => {
+const Frame: React.FC<FrameProps> = (props) => {
   return (
     <NavLink to={`/Accommodate/${props.id}`} key={props.id}>
       <div className="frame">
@@ -19,8 +19,6 @@ const Frame : React.FC<FrameProps> = (props) => {
         <div className="middle"> </div>
       </div>
     </NavLink>
-
- 
   );
 };
 

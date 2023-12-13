@@ -1,20 +1,18 @@
 import "./style.scss";
 import { useState } from "react";
 
-type About = {
-    key:number;
-    title: string;
-    text: string;
-  }
-  
-const Collapse :React.FC<About> = (props) => {
-    
+type CollapseProps = {
+  title: string;
+  text?: string;
+  ArryText?: JSX.Element[]; };
+
+const Collapse: React.FC<CollapseProps> = ({ title, text, ArryText }) => {
   const [open, setOpen] = useState("none");
 
   return (
-    <div className="collapse" >
+    <div className="collapse">
       <div className="collapse-title">
-        <h6>{props.title}</h6>
+        <h6>{title}</h6>
         <div>
           <i
             style={{ display: open }}
@@ -30,8 +28,8 @@ const Collapse :React.FC<About> = (props) => {
         </div>
       </div>
       <div className="collapse-article" style={{ display: open }}>
-        <p>{props.text}</p>
-        <ul className="ArryText">{props.ArryText} </ul>
+        <p>{text}</p>
+        <ul className="ArryText">{ArryText} </ul>
       </div>
     </div>
   );

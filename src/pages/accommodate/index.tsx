@@ -10,11 +10,6 @@ import { useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 
 type AccommodateProps = {
-  PictureProps: {
-    photo: string;
-    text: string;
-    paragraphe: string;
-  };
   posts: {
     id: string;
     title: string;
@@ -29,31 +24,30 @@ type AccommodateProps = {
     location: string;
     equipments: string[];
     tags: string[];
-    tag: string[];
   }[];
-  CarrouselProps: {
-    slides: strin;
-    slide: string;
-    key: number;
-  };
-  tagsProps: {
-    Rating: number;
-    stars: number;
-  };
-  user: boolean;
+
+  // user: boolean;
+  // tagLength: number;
+  // item: number;
+  // lastSlide: number;
+  // slidesLenghth: number;
+  // firstSlide: number;
+  // newIndex: number;
 };
 
 const Accommodate: React.FC<AccommodateProps> = ({ posts }) => {
-  const [index, setCurrentindex] = useState(0);
+  const [index, setCurrentindex] = useState<number>(0);
   /**
    * recuperer le ID
    */
   const { id } = useParams();
 
   ///slidesLenghth
-  const slidesLenghth = posts
-    .filter((post) => post.id === id)
-    .map((post) => post.pictures.length);
+  const slidesLenghth =
+    posts
+      .filter((post) => post.id === id)
+      .map((post) => post.pictures.length)
+      .find((pictures) => pictures !== undefined) || 0;
 
   /// function presedent
   const goToPrevious = () => {
@@ -72,30 +66,35 @@ const Accommodate: React.FC<AccommodateProps> = ({ posts }) => {
   };
 
   ////keyboard
-  function keyclavier(e) {
+  function keyclavier(e: KeyboardEvent): void {
     if (e.keyCode === 37) {
       goToPrevious();
     } else if (e.keyCode === 39) {
       goToNext();
     }
   }
+
   document.addEventListener("keydown", keyclavier);
 
   ///tags
   ///tagLenght
-  const tagLength = posts
-    .filter((post) => post.id === id)
-    .map((post) => post.tags.length);
+  const tagLength =
+    posts
+      .filter((post) => post.id === id)
+      .map((post) => post.tags.length)
+      .find((tags) => tags !== undefined) || 0;
 
-  const tag = [];
+  const tag: JSX.Element[] = [];
   for (let item = 0; item <= tagLength - 1; item++) {
     posts
       .filter((post) => post.id === id)
       .map((post) => tag.push(<Tag tags={post.tags[item]} key={item} />));
   }
-  const Rating = posts
-    .filter((post) => post.id === id)
-    .map((post) => post.rating);
+  const Rating: number =
+    posts
+      .filter((post) => post.id === id)
+      .map((post) => post.rating)
+      .find((rating) => rating !== undefined) || 0;
   const stars = Array(5).fill(0);
 
   const colorStars = {
@@ -166,7 +165,7 @@ const Accommodate: React.FC<AccommodateProps> = ({ posts }) => {
                   key={post.id}
                 />
               ))}
-            <ul className="tags">{tag}</ul>
+            <ul className="tags">{React.Children.toArray(tag)}</ul>
           </div>
           <div className="containerHostStars">
             <div className="host">
@@ -197,7 +196,7 @@ const Accommodate: React.FC<AccommodateProps> = ({ posts }) => {
             .filter((post) => post.id === id)
             .map((post) => (
               <Collapse
-                title={"description"}
+                title="description"
                 text={post.description}
                 key={post.id}
               />
@@ -206,7 +205,7 @@ const Accommodate: React.FC<AccommodateProps> = ({ posts }) => {
             .filter((post) => post.id === id)
             .map((post) => (
               <Collapse
-                title={"Équipements"}
+                title="Équipements"
                 ArryText={post.equipments.map((equipment) => (
                   <li key={equipment}>{equipment}</li>
                 ))}

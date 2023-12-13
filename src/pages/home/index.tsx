@@ -5,11 +5,7 @@ import ImageDesktop from "../../assets/images/headerDesktop.png";
 import "./style.scss";
 
 type HomeProps = {
-  PictureProps:{
-    photo:string;
-    text:string;
-    paragraphe:string;
-  }
+ 
   posts: {
     id: string;
     title: string;

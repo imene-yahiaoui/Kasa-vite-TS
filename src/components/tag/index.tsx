@@ -2,7 +2,7 @@ import React from "react";
  import "./style.scss"
 
  type tagProps={
-    tags:string[];
+    tags:string;
  }
 
 const Tag : React.FC<tagProps> = ({tags}) => {
