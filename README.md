@@ -6,7 +6,7 @@
 Bienvenue chez Kasa, le leader de la location d'appartements entre particuliers en France ! 🇫🇷
 
 🚀  Technologies Utilisées:
-
+   
 
 Le projet repose sur une stack technologique moderne pour assurer performance et qualité :
 
