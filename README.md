@@ -3,6 +3,7 @@
 # Le lien ver le site 🌐 https://kasa-vite-react-typescript.netlify.app/  
 
 🏡 Contexte du Projet
+
 Bienvenue chez Kasa, le leader de la location d'appartements entre particuliers en France ! 🇫🇷
 
 
