@@ -12,6 +12,7 @@ Bienvenue chez Kasa, le leader de la location d'appartements entre particuliers 
 
 Le projet repose sur une stack technologique moderne pour assurer performance et qualité :
 
+
 🌐 Vite: Un bundler rapide pour le développement web.
 
 
