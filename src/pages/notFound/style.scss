@@ -19,9 +19,11 @@
   margin-bottom: 120px;
   text-align: center;
 }
-Link {
+a {
   font-size: 18px;
   font-weight: 500;
+  color: $color-primaire;
+  text-decoration: underline;
 }
 
 @include portable {
@@ -31,15 +33,19 @@ Link {
     span {
       display: block;
     }
+ 
   }
 
-  Link {
+  a {
     font-size: 14px;
+  }
+  .notFound-img {
+    width: 80%;
   }
 }
 
-
-@include portable_smal{
-
-    
+@include portable_smal {
+  .notFound-img {
+    width: 80%;
+  }
 }

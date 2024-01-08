@@ -24,25 +24,26 @@
     font-size: 18px;
     font-weight: 500;
     position: relative;
-    top: -85px;
-    width: 80%;
+    top: -90px;
+    width: 60%;
     left: 20px;
     margin-right: 19px;
     z-index: 10;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
-  p:hover{
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
     text-decoration: none;
   }
 }
- 
-a{
-  text-decoration: none;
-}
-a:hover{
-  text-decoration: none;
 
-}
- 
 .middle {
   width: 100%;
   height: 100%;
@@ -54,7 +55,6 @@ a:hover{
 .middle:hover {
   background: linear-gradient(180deg, #ff6060a1 85%, #000000a6 100%);
   cursor: pointer;
-  
 }
 
 @include for_tablet {
