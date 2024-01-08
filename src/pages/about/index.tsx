@@ -8,12 +8,16 @@ type AboutProps = {
     key: number | string;
     title: string;
     text: string;
-  
   }[];
- 
- 
-  
 };
+
+/**
+ * About Component.
+ *
+ * @param {Object} AboutProps - Props for the About component.
+ * @param {Array<Object>} AboutProps.dataAbout - An array of objects containing data for the About component.
+ * @returns {JSX.Element} - The JSX element representing the About component.
+ */
 
 const About: React.FC<AboutProps> = ({ dataAbout }) => {
   return (

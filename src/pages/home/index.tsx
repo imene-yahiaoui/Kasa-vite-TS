@@ -5,7 +5,6 @@ import ImageDesktop from "../../assets/images/headerDesktop.png";
 import "./style.scss";
 
 type HomeProps = {
- 
   posts: {
     id: string;
     title: string;
@@ -21,13 +20,22 @@ type HomeProps = {
     equipments: string[];
     tags: string[];
   }[];
-}
-
+};
+/**
+ * Home Component.
+ *
+ * @param {Object} HomeProps - Props for the Home component.
+ * @param {Array<Object>} HomeProps.posts - An array of objects containing post data for the Home component.
+ * @returns {JSX.Element} - The JSX element representing the Home component.
+ */
 const Home: React.FC<HomeProps> = ({ posts }) => {
   return (
     <div>
-      <Picture photo={ImageDesktop}     text="Chez vous,"
-          paragraphe="partout et ailleurs" />
+      <Picture
+        photo={ImageDesktop}
+        text="Chez vous,"
+        paragraphe="partout et ailleurs"
+      />
       <div className="container">
         {posts.map((post) => (
           <Frame

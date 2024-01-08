@@ -25,6 +25,13 @@ type dataAbout = {
   text: string;
 };
 
+/**
+ * Fetches data from a JSON file.
+ *
+ * @param {string} url - The URL of the JSON file to be fetched.
+ * @returns {Promise<{ data: any, dataAbout: any }>} - A Promise that resolves to an object containing the fetched data and dataAbout.
+ */
+
 const App: React.FC = () => {
   const [posts, setPosts] = useState<post[]>([]);
   const [dataAbout, setDataAbout] = useState<dataAbout[]>([]);

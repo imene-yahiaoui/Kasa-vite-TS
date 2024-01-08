@@ -3,6 +3,11 @@ import notFound from "../../assets/images/404.png";
 import { Link } from "react-router-dom";
 import "./style.scss";
 
+/**
+ * NotFound Component.
+ *
+ * @returns {JSX.Element} - The JSX element representing the NotFound component.
+ */
 const NotFound: React.FC = () => {
   return (
     <div className="notFound">

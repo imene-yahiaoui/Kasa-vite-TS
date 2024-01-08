@@ -25,15 +25,15 @@ type AccommodateProps = {
     equipments: string[];
     tags: string[];
   }[];
-
-  // user: boolean;
-  // tagLength: number;
-  // item: number;
-  // lastSlide: number;
-  // slidesLenghth: number;
-  // firstSlide: number;
-  // newIndex: number;
 };
+
+/**
+ * Accommodate Component.
+ *
+ * @param {Object} AccommodateProps - Props for the Accommodate component.
+ * @param {Array<Object>} AccommodateProps.posts - An array of objects containing post data for the Accommodate component.
+ * @returns {JSX.Element} - The JSX element representing the Accommodate component.
+ */
 
 const Accommodate: React.FC<AccommodateProps> = ({ posts }) => {
   const [index, setCurrentindex] = useState<number>(0);

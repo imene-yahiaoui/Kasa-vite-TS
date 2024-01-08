@@ -10,7 +10,7 @@ type RoutesPathProps = {
     id: string;
     title: string;
     cover: string;
-    pictures: string [];
+    pictures: string[];
     description: string;
     host: {
       name: string;
@@ -18,9 +18,8 @@ type RoutesPathProps = {
     };
     rating: number;
     location: string;
-    equipments: string [];
-    tags: string [];
-    
+    equipments: string[];
+    tags: string[];
   }[];
 
   dataAbout: {
@@ -30,6 +29,14 @@ type RoutesPathProps = {
   }[];
 };
 
+/**
+ * RoutesPath Component.
+ *
+ * @param {Object} RoutesPathProps - Props for the RoutesPath component.
+ * @param {Array<Object>} RoutesPathProps.posts - An array of objects containing post data for routing.
+ * @param {Array<Object>} RoutesPathProps.dataAbout - An array of objects containing data for the About component.
+ *  @returns {React.Element} - The element representing the router for the React application.
+ */
 const RoutesPath: React.FC<RoutesPathProps> = ({ posts, dataAbout }) => {
   return (
     <div>

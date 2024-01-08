@@ -8,6 +8,18 @@ type FrameProps = {
   cover: string;
 };
 
+/**
+ * Frame Component.
+ *
+ * @param {Object} FrameProps - Props for the Frame component.
+ * @param {string} FrameProps.id - The ID of the frame.
+ * @param {string} FrameProps.cover - The URL of the frame cover image.
+ * @param {string} FrameProps.title - The title of the frame.
+ * @returns {JSX.Element} - The JSX element representing the Frame component.
+ */
+
+
+
 const Frame: React.FC<FrameProps> = (props) => {
   return (
     <NavLink to={`/Accommodate/${props.id}`} key={props.id}>
