@@ -6,7 +6,7 @@ import Info from "../../components/info";
 import Stars from "../../components/stars";
 import Tag from "../../components/tag";
 import "./style.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 
 type AccommodateProps = {
@@ -37,6 +37,7 @@ type AccommodateProps = {
 
 const Accommodate: React.FC<AccommodateProps> = ({ posts }) => {
   const [index, setCurrentindex] = useState<number>(0);
+  const [error, setError] = useState(false);
   /**
    * recuperer le ID
    */
@@ -104,9 +105,39 @@ const Accommodate: React.FC<AccommodateProps> = ({ posts }) => {
   /**
    * Vérifier si l'utilisateur existe
    */
-  const user = posts.some((post) => post.id === id);
+  const invalidId = id.match(/^[a-z0-9]{8}$/i) === null;
+  useEffect(() => {
+    if (!invalidId) {
+      const getCurrentAccommodationData = async () => {
+        try {
+          let data = {};
+          const response = await fetch("../../data.json");
 
-  if (user) {
+          if (response.ok) {
+            data = await response.json();
+
+            const currentAccommodationData = data.find(
+              (accommodation) => accommodation.id === id
+            );
+
+            if (currentAccommodationData === undefined) {
+              setError(true);
+            }
+          }
+        } catch (err) {
+          setError(true);
+        }
+      };
+
+      getCurrentAccommodationData();
+    }
+  });
+
+  if (invalidId) {
+    return <Navigate to="/*" />;
+  }
+
+  if (!error) {
     return (
       <div className="App">
         <div className="carrousel_imgs">

@@ -1,22 +1,23 @@
-
 @import "../../assets/sass/variables.scss";
 @import "../../assets/sass/mixin.scss";
 .tag {
-    background: $color-primaire;
-    color: $color-Secondaire;
-    border-radius: 14px;
-    padding: 9px 30px;
-    font-size: 14px;
-    column-gap: 13px;
-    margin-left: -2px;
+  background: $color-primaire;
+  color: $color-Secondaire;
+  border-radius: 14px;
+  padding: 9px 30px;
+  font-size: 14px;
+  column-gap: 13px;
+  margin-left: -2px;
+}
+.tag-container {
+  list-style: none;
+}
+@include portable_smal {
+  .tag {
+    font-size: 12px;
   }
-  
-  @include portable_smal {
-    .tag {
-      font-size: 12px;
-    }
-  
-    .tag-container {
-      max-width: 40%;
-    }
+
+  .tag-container {
+    max-width: 40%;
   }
+}

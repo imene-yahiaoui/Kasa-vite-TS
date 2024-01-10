@@ -34,15 +34,16 @@
       text-decoration: none;
     }
   }
-}
-
-a {
-  text-decoration: none;
-
-  &:hover {
+  a {
     text-decoration: none;
+  
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
+
+
 
 .middle {
   width: 100%;
@@ -51,6 +52,13 @@ a {
   top: -340px;
   border-radius: 10px;
   background: linear-gradient(180deg, #ffffff00 0%, #00000080 100%);
+  a {
+    text-decoration: none;
+  
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 .middle:hover {
   background: linear-gradient(180deg, #ff6060a1 85%, #000000a6 100%);
