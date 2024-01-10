@@ -1,6 +1,6 @@
 ![LOGO (2)](https://github.com/imene-yahiaoui/Kasa-vite-TS/assets/76797190/cd40c60b-7532-49f9-970d-c1b2df7b588b)
 
-# Le lien ver le site 🌐 https://kasavitets.netlify.app 
+# Le lien ver le site 🌐 https://kasa-vite-ts.netlify.app
 
 
 🏡 Contexte du Projet
