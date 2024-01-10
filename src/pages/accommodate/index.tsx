@@ -105,23 +105,28 @@ const Accommodate: React.FC<AccommodateProps> = ({ posts }) => {
   /**
    * Vérifier si l'utilisateur existe
    */
-  const invalidId = id ? id.match(/^[a-z0-9]{8}$/i) === null : false;
+
   useEffect(() => {
-    if (!invalidId) {
-      const getCurrentAccommodationData = async () => {
-        const currentAccommodationData = posts.some((post) => post.id === id);
+    const getCurrentAccommodationData = async () => {
+      try {
+        let data: AccommodateProps["posts"];
+        const response = await fetch("../../data.json");
 
-        if (currentAccommodationData === undefined) {
-          setError(true);
+        if (response.ok) {
+          data = await response.json();
+
+          const currentAccommodationData = data.find((post) => post.id === id);
+
+          if (currentAccommodationData === undefined) {
+            setError(true);
+          }
         }
-      };
-      getCurrentAccommodationData();
-    }
+      } catch (err) {
+        setError(true);
+      }
+    };
+    getCurrentAccommodationData();
   });
-
-  if (invalidId) {
-    return <Navigate to="/*" />;
-  }
 
   if (!error) {
     return (
